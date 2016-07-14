@@ -1,0 +1,12 @@
+<% @userPokemon.each do |pokemon| %>
+	<div>
+		<%= pokemon.pokemon %>
+		<%= pokemon.requires %>
+
+		<%= form_tag("/update", method: "post") do %>
+			<%= select_tag 'candies', options_for_select((0..999)), {:include_blank => false, :value => pokemon.candies} %>
+			<%= select_tag 'pokemon_count', options_for_select((0..999), pokemon.count), {:include_blank => false} %>
+		<% end %>
+
+	</div>
+<% end %>
